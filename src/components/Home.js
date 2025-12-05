@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
+import { CartContext } from '../App';
 import founderImage from '../img/founder.jpeg';
+
 function Home() {
+  const { cartItems } = useContext(CartContext);
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
       {/* Navigation */}
