@@ -25,6 +25,14 @@ function Home() {
               <Link to="/services" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Our Services</Link>
               <Link to="/analytics" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">About Us</Link>
               <Link to="/settings" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Contact</Link>
+              <Link to="/cart" className="relative text-gray-700 hover:text-orange-600 transition-colors font-medium">
+                Cart
+                {cartItemCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {cartItemCount}
+                  </span>
+                )}
+              </Link>
             </div>
           </div>
         </div>
