@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
@@ -86,6 +86,19 @@ function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          {/* Download App */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Download Our App</h4>
+            <div className="flex flex-col space-y-3">
+              <a href="https://drive.google.com/file/d/1yreKUS7XpGVp6AnjyGCGehWJk3wzOS3j/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-12 hover:opacity-80 transition-opacity" />
+              </a>
+              <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-10 hover:opacity-80 transition-opacity" />
+              </a>
+            </div>
           </div>
         </div>
 
