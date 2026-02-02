@@ -1,157 +1,175 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
+import { CartContext } from '../App';
+import './Services.css';
 
 function Services() {
+  const { cartItems } = useContext(CartContext);
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   const services = [
     {
       id: 1,
-      name: "Solar System Design & Installation",
-      description: "Complete end-to-end solar system design and professional installation services",
-      price: "Starting from ₹1,50,000",
-      icon: "🏗️",
+      name: "Free Home Delivery",
+      description: "Get your premium rice delivered fresh to your doorstep absolutely free",
+      price: "Free",
+      icon: "🚚",
+      bgColor: "bg-green-50",
+      iconColor: "text-green-600",
       features: [
-        "Site assessment and feasibility study",
-        "Custom system design",
-        "Professional installation",
-        "System testing and commissioning",
-        "Performance warranty"
+        "Delivery within 24 hours",
+        "No minimum order requirement",
+        "All areas covered",
+        "Real-time tracking"
       ]
     },
     {
       id: 2,
-      name: "Solar Maintenance & Support",
-      description: "Comprehensive maintenance services to keep your solar system performing optimally",
-      price: "₹5,000/year",
-      icon: "🔧",
+      name: "Bulk Orders",
+      description: "Special pricing for restaurants, hotels, caterers, and wedding functions",
+      price: "Up to 20% Off",
+      icon: "🏪",
+      bgColor: "bg-blue-50",
+      iconColor: "text-blue-600",
       features: [
-        "Regular system inspection",
-        "Cleaning and maintenance",
-        "Performance monitoring",
-        "24/7 technical support",
-        "Emergency repairs"
+        "Wholesale pricing",
+        "Custom packaging",
+        "Flexible payment terms",
+        "Dedicated account manager"
       ]
     },
     {
       id: 3,
-      name: "Energy Audit & Consultation",
-      description: "Professional energy assessment to optimize your solar investment",
-      price: "₹10,000",
-      icon: "📊",
+      name: "Quality Assurance",
+      description: "Premium quality guarantee with ISO certified processing",
+      price: "100% Guaranteed",
+      icon: "✅",
+      bgColor: "bg-purple-50",
+      iconColor: "text-purple-600",
       features: [
-        "Energy consumption analysis",
-        "Solar potential assessment",
-        "ROI calculations",
-        "Government subsidy guidance",
-        "Custom recommendations"
+        "Lab tested quality",
+        "Proper aging ensured",
+        "No adulteration",
+        "Money back guarantee"
       ]
     },
     {
       id: 4,
-      name: "Solar Battery Installation",
-      description: "Expert installation of solar battery storage systems for energy independence",
-      price: "₹50,000",
-      icon: "🔋",
+      name: "Custom Packaging",
+      description: "Get rice packed in your desired quantity and packaging",
+      price: "Custom Quote",
+      icon: "📦",
+      bgColor: "bg-orange-50",
+      iconColor: "text-orange-600",
       features: [
-        "Battery system design",
-        "Professional installation",
-        "System integration",
-        "Safety testing",
-        "User training"
+        "1kg to 50kg packs",
+        "Vacuum packaging available",
+        "Branded packaging",
+        "Gift packs available"
       ]
     },
     {
       id: 5,
-      name: "Solar Panel Upgradation",
-      description: "Upgrade your existing solar system with latest technology panels",
-      price: "₹75,000",
-      icon: "⬆️",
+      name: "Corporate Gifting",
+      description: "Premium rice gift boxes for corporate events and festivals",
+      price: "Custom Pricing",
+      icon: "🎁",
+      bgColor: "bg-red-50",
+      iconColor: "text-red-600",
       features: [
-        "System assessment",
-        "Upgrade planning",
-        "Panel replacement",
-        "System optimization",
-        "Performance guarantee"
+        "Elegant packaging",
+        "Custom branding",
+        "Bulk discounts",
+        "Pan-India delivery"
       ]
     },
     {
       id: 6,
-      name: "Training & Education",
-      description: "Comprehensive training programs for solar system owners and installers",
-      price: "₹15,000",
-      icon: "🎓",
+      name: "Farm Visits",
+      description: "Visit our rice farms to see the quality firsthand",
+      price: "Free",
+      icon: "🌾",
+      bgColor: "bg-emerald-50",
+      iconColor: "text-emerald-600",
       features: [
-        "System operation training",
-        "Maintenance workshops",
-        "Safety protocols",
-        "Troubleshooting guides",
-        "Certification programs"
+        "Guided tours",
+        "Farm-fresh rice",
+        "Educational tours",
+        "Group bookings welcome"
       ]
     }
   ];
 
+  const processSteps = [
+    { step: "1", title: "Place Order", description: "Browse our collection and place your order online or call us" },
+    { step: "2", title: "Quality Check", description: "We select and pack the freshest rice for your order" },
+    { step: "3", title: "Dispatch", description: "Your order is dispatched with proper packaging and tracking" },
+    { step: "4", title: "Delivery", description: "Fresh rice delivered to your doorstep within 24 hours" }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="services-container">
       {/* Navigation */}
-      <nav className="bg-white shadow-lg border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-2xl">☀️</span>
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900">SolarGrid</h1>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="navbar-brand">
+            <div className="logo">
+              <span>🌾</span>
             </div>
-            <div className="hidden md:flex space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</Link>
-              <Link to="/products" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Products</Link>
-              <Link to="/services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</Link>
-              <Link to="/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Dashboard</Link>
+            <div className="brand-text">
+              <h1>NVS Rice Mart</h1>
+              <p>Premium Rice Since 2010</p>
             </div>
+          </div>
+          <div className="navbar-links">
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/products" className="nav-link">Rice Varieties</Link>
+            <Link to="/services" className="nav-link active">Our Services</Link>
+            <Link to="/analytics" className="nav-link">About Us</Link>
+            <Link to="/settings" className="nav-link">Contact</Link>
+            <Link to="/cart" className="nav-link cart-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              {cartItemCount > 0 && <span className="cart-badge">{cartItemCount}</span>}
+            </Link>
           </div>
         </div>
       </nav>
 
       {/* Header */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Professional solar services from design to maintenance. We provide comprehensive solutions for all your solar energy needs.
-          </p>
+      <section className="services-header">
+        <div className="header-content">
+          <span className="header-badge">Our Services</span>
+          <h1>Premium Rice Services</h1>
+          <p>From farm to your kitchen, we provide the finest rice with exceptional service</p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="services-grid-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">What We Offer</span>
+            <h2 className="section-title">Our Premium Services</h2>
+            <p className="section-description">Comprehensive rice solutions tailored to meet your needs</p>
+          </div>
+          <div className="services-grid">
             {services.map((service) => (
-              <div key={service.id} className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-center mb-4">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-4xl text-blue-600">{service.icon}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.name}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <p className="text-2xl font-bold text-blue-600 mb-4">{service.price}</p>
+              <div key={service.id} className="service-card">
+                <div className={`service-icon ${service.bgColor.replace('bg-', 'icon-')}`}>
+                  <span>{service.icon}</span>
                 </div>
-
-                <div className="mb-6">
-                  <h4 className="text-gray-900 font-medium mb-2">What's Included:</h4>
-                  <ul className="text-gray-600 text-sm space-y-1">
-                    {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-center">
-                        <span className="text-green-500 mr-2">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">
-                  Get Quote
-                </button>
+                <h3 className="service-name">{service.name}</h3>
+                <p className="service-description">{service.description}</p>
+                <div className="service-price">{service.price}</div>
+                <ul className="service-features">
+                  {service.features.map((feature, index) => (
+                    <li key={index}>✓ {feature}</li>
+                  ))}
+                </ul>
+                <Link to="/products" className="btn btn-primary btn-small">Learn More</Link>
               </div>
             ))}
           </div>
@@ -159,58 +177,66 @@ function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-blue-600">1️⃣</span>
+      <section className="process-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">How It Works</span>
+            <h2 className="section-title">Our Simple Process</h2>
+            <p className="section-description">Getting fresh rice has never been easier</p>
+          </div>
+          <div className="process-grid">
+            {processSteps.map((step, index) => (
+              <div key={index} className="process-card">
+                <div className="process-step">{step.step}</div>
+                <h3 className="process-title">{step.title}</h3>
+                <p className="process-description">{step.description}</p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation</h3>
-              <p className="text-gray-600">Free assessment and consultation</p>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-blue-600">2️⃣</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Design</h3>
-              <p className="text-gray-600">Custom system design and planning</p>
+      {/* Why Choose Us Section */}
+      <section className="why-choose-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">Why NVS Rice Mart</span>
+            <h2 className="section-title">What Makes Us Different</h2>
+          </div>
+          <div className="why-choose-grid">
+            <div className="why-choose-card">
+              <span className="why-icon">🌾</span>
+              <h3>Direct from Farms</h3>
+              <p>Our rice comes directly from the finest farms, ensuring freshness and quality at the best prices</p>
             </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-blue-600">3️⃣</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Installation</h3>
-              <p className="text-gray-600">Professional installation service</p>
+            <div className="why-choose-card">
+              <span className="why-icon">🏆</span>
+              <h3>15+ Years Experience</h3>
+              <p>With over 15 years in the business, we understand rice like no one else</p>
             </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl text-blue-600">4️⃣</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Support</h3>
-              <p className="text-gray-600">Ongoing maintenance and support</p>
+            <div className="why-choose-card">
+              <span className="why-icon">📦</span>
+              <h3>Quality Packaging</h3>
+              <p>Proper packaging ensures your rice stays fresh for months</p>
+            </div>
+            <div className="why-choose-card">
+              <span className="why-icon">💰</span>
+              <h3>Best Prices Guaranteed</h3>
+              <p>We offer the best prices in the market with special discounts for bulk orders</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
-            <p className="text-gray-600 mb-6">Contact us today for a free consultation and quote for your solar project.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                Request Quote
-              </button>
-              <Link to="/products" className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-3 rounded-lg font-semibold border border-gray-300 transition-colors">
-                View Products
-              </Link>
+      <section className="cta-section">
+        <div className="cta-content">
+          <div className="cta-card">
+            <h2>Ready to Order Premium Rice?</h2>
+            <p>Get fresh, high-quality rice delivered to your doorstep with free home delivery</p>
+            <div className="cta-buttons">
+              <Link to="/products" className="btn btn-white">Order Now</Link>
+              <Link to="/settings" className="btn btn-outline-white">Contact Us</Link>
             </div>
           </div>
         </div>

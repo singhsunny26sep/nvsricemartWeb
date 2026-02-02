@@ -3,287 +3,312 @@ import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import { CartContext } from '../App';
 import founderImage from '../img/founder.jpeg';
+import './Home.css';
 
 function Home() {
   const { cartItems } = useContext(CartContext);
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  const riceVarieties = [
+    {
+      id: 1,
+      name: 'Basmati Rice',
+      description: 'Premium long-grain aromatic rice from the foothills of Himalayas',
+      emoji: '🍚',
+      bgColor: 'bg-green-50',
+      iconColor: 'text-green-600',
+      features: ['Aged for 1-2 years', 'Gluten-free & healthy', 'Perfect for biryani'],
+      price: '₹120/kg',
+      packSizes: '1kg, 5kg, 25kg'
+    },
+    {
+      id: 2,
+      name: 'Sonamasuri Rice',
+      description: 'Traditional short-grain rice with soft texture and natural sweetness',
+      emoji: '🌾',
+      bgColor: 'bg-blue-50',
+      iconColor: 'text-blue-600',
+      features: ['Daily consumption rice', 'Easy to cook', 'Rich in carbohydrates'],
+      price: '₹80/kg',
+      packSizes: '1kg, 5kg, 25kg'
+    },
+    {
+      id: 3,
+      name: 'Brown Rice',
+      description: 'Whole grain rice packed with nutrients and fiber',
+      emoji: '🥘',
+      bgColor: 'bg-amber-50',
+      iconColor: 'text-amber-600',
+      features: ['High in fiber', 'Low glycemic index', 'Health-conscious choice'],
+      price: '₹100/kg',
+      packSizes: '1kg, 5kg'
+    },
+    {
+      id: 4,
+      name: 'Sona Masoori Rice',
+      description: 'Light, fluffy rice perfect for everyday meals',
+      emoji: '🍲',
+      bgColor: 'bg-yellow-50',
+      iconColor: 'text-yellow-600',
+      features: ['Easy digestion', 'Budget-friendly', 'Excellent taste'],
+      price: '₹75/kg',
+      packSizes: '1kg, 5kg, 10kg'
+    },
+    {
+      id: 5,
+      name: 'Jeera Rice',
+      description: 'Fragrant rice with subtle cumin flavor',
+      emoji: '🌿',
+      bgColor: 'bg-emerald-50',
+      iconColor: 'text-emerald-600',
+      features: ['Aromatic & flavorful', 'Perfect pulao rice', 'Premium quality'],
+      price: '₹95/kg',
+      packSizes: '1kg, 5kg'
+    },
+    {
+      id: 6,
+      name: 'Ponni Rice',
+      description: 'Medium grain rice with excellent cooking quality',
+      emoji: '🌱',
+      bgColor: 'bg-teal-50',
+      iconColor: 'text-teal-600',
+      features: ['Non-sticky texture', 'Rich in nutrients', 'South Indian favorite'],
+      price: '₹85/kg',
+      packSizes: '1kg, 5kg, 25kg'
+    }
+  ];
+
+  const features = [
+    { icon: '🌾', title: 'Premium Quality', description: 'Handpicked, premium rice varieties sourced directly from the finest farms across India', color: 'orange' },
+    { icon: '🚚', title: 'Fast Delivery', description: 'Free home delivery within 24 hours across the city. Fresh rice guaranteed', color: 'green' },
+    { icon: '💰', title: 'Best Prices', description: 'Competitive wholesale prices with special discounts for bulk orders and regular customers', color: 'blue' },
+    { icon: '✅', title: 'Quality Assured', description: 'ISO certified processing unit with strict quality control at every stage', color: 'purple' },
+    { icon: '🏪', title: 'Bulk Orders', description: 'Special pricing for restaurants, hotels, and wedding functions. Direct farm to consumer', color: 'red' },
+    { icon: '📞', title: '24/7 Support', description: 'Dedicated customer support team ready to assist you with orders and inquiries', color: 'cyan' }
+  ];
+
+  const stats = [
+    { value: '15+', label: 'Years Experience' },
+    { value: '50,000+', label: 'Happy Customers' },
+    { value: '20+', label: 'Rice Varieties' },
+    { value: '100%', label: 'Quality Guaranteed' }
+  ];
+
+  const testimonials = [
+    { name: 'Rajesh Sharma', location: 'Delhi', initials: 'RS', bgColor: 'bg-orange-100', textColor: 'text-orange-600', rating: 5, text: "NVS Rice Mart provides the best quality rice in the city. Their Basmati rice is exceptional, and the delivery is always on time. My family loves their products!" },
+    { name: 'Priya Kapoor', location: 'Mumbai', initials: 'PK', bgColor: 'bg-green-100', textColor: 'text-green-600', rating: 5, text: "As a restaurant owner, I need consistent quality rice. NVS Rice Mart has been our trusted supplier for 3 years. Their service and product quality is outstanding!" },
+    { name: 'Amit Mehta', location: 'Bangalore', initials: 'AM', bgColor: 'bg-purple-100', textColor: 'text-purple-600', rating: 5, text: "Excellent quality rice with very competitive prices. The free delivery service is a bonus, and their customer service is very responsive and helpful." }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="home-container">
       {/* Navigation */}
-      <nav className="bg-white shadow-lg border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-2xl">🌾</span>
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900">NVS Rice Mart</h1>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="navbar-brand">
+            <div className="logo">
+              <span>🌾</span>
             </div>
-            <div className="hidden md:flex space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Home</Link>
-              <Link to="/products" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Rice Varieties</Link>
-              <Link to="/services" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Our Services</Link>
-              <Link to="/analytics" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">About Us</Link>
-              <Link to="/settings" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Contact</Link>
-              <Link to="/cart" className="relative text-gray-700 hover:text-orange-600 transition-colors font-medium">
-                Cart
-                {cartItemCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {cartItemCount}
-                  </span>
-                )}
-              </Link>
+            <div className="brand-text">
+              <h1>NVS Rice Mart</h1>
+              <p>Premium Rice Since 2010</p>
             </div>
+          </div>
+          <div className="navbar-links">
+            <Link to="/" className="nav-link active">Home</Link>
+            <Link to="/products" className="nav-link">Rice Varieties</Link>
+            <Link to="/services" className="nav-link">Our Services</Link>
+            <Link to="/analytics" className="nav-link">About Us</Link>
+            <Link to="/settings" className="nav-link">Contact</Link>
+            <Link to="/cart" className="nav-link cart-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              {cartItemCount > 0 && <span className="cart-badge">{cartItemCount}</span>}
+            </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+      <section className="hero">
+        <div className="hero-content">
+          <span className="hero-badge">🏆 India's Trusted Rice Supplier</span>
+          <h1 className="hero-title">
             Premium Quality Rice
             <br />
-            <span className="text-orange-600">Delivered to Your Door</span>
+            <span className="highlight">Delivered Fresh to You</span>
           </h1>
-          <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            Discover the finest varieties of rice sourced directly from the best farms across India.
-            Fresh, pure, and premium quality rice for your family's health and happiness.
+          <p className="hero-description">
+            Discover the finest varieties of rice sourced directly from the best farms across India. 
+            Fresh, pure, and premium quality rice for your family's health and happiness since 2010.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/products" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-              Shop Rice Varieties
-            </Link>
-            <Link to="/services" className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-3 rounded-lg font-semibold border border-gray-300 transition-colors">
-              Our Services
-            </Link>
+          <div className="hero-buttons">
+            <Link to="/products" className="btn btn-primary">Shop Rice Varieties →</Link>
+            <Link to="/services" className="btn btn-secondary">View Our Services</Link>
+          </div>
+          <div className="hero-stats">
+            {stats.map((stat, index) => (
+              <div key={index} className="stat-item">
+                <span className="stat-value">{stat.value}</span>
+                <span className="stat-label">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Rice Varieties Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-50 to-yellow-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Premium Rice Varieties</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl text-green-600">🍚</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Basmati Rice</h3>
-              <p className="text-gray-600 mb-4">Premium long-grain aromatic rice from the foothills of Himalayas</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Aged for 1-2 years for better taste</li>
-                <li>• Gluten-free and healthy</li>
-                <li>• Perfect for biryani and pulao</li>
-                <li>• Available in 1kg, 5kg, 25kg packs</li>
-                <li>• Starting from ₹120/kg</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl text-blue-600">🌾</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Sonamasuri Rice</h3>
-              <p className="text-gray-600 mb-4">Traditional short-grain rice with soft texture and natural sweetness</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Daily consumption rice</li>
-                <li>• Easy to cook and digest</li>
-                <li>• Rich in carbohydrates</li>
-                <li>• Available in 1kg, 5kg, 25kg packs</li>
-                <li>• Starting from ₹80/kg</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl text-orange-600">🥘</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Brown Rice</h3>
-              <p className="text-gray-600 mb-4">Whole grain rice packed with nutrients and fiber</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• High in fiber and nutrients</li>
-                <li>• Low glycemic index</li>
-                <li>• Perfect for health-conscious families</li>
-                <li>• Available in 1kg, 5kg packs</li>
-                <li>• Starting from ₹100/kg</li>
-              </ul>
-            </div>
+      <section className="rice-varieties">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">Our Products</span>
+            <h2 className="section-title">Premium Rice Varieties</h2>
+            <p className="section-description">We offer a wide range of premium quality rice varieties sourced from the finest farms across India</p>
           </div>
-
-          <div className="text-center mt-12">
-            <div className="bg-orange-600 text-white rounded-lg p-6 max-w-2xl mx-auto">
-              <h3 className="text-xl font-semibold mb-2">Free Home Delivery!</h3>
-              <p className="mb-4">Order online and get fresh rice delivered to your doorstep within 24 hours</p>
-              <Link to="/products" className="bg-white text-orange-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Shop Now
-              </Link>
-            </div>
+          <div className="rice-grid">
+            {riceVarieties.map((rice) => (
+              <div key={rice.id} className="rice-card">
+                <div className={`rice-icon ${rice.bgColor.replace('bg-', 'icon-')}`}>
+                  <span>{rice.emoji}</span>
+                </div>
+                <h3 className="rice-name">{rice.name}</h3>
+                <p className="rice-description">{rice.description}</p>
+                <ul className="rice-features">
+                  {rice.features.map((feature, idx) => (
+                    <li key={idx}>✓ {feature}</li>
+                  ))}
+                </ul>
+                <div className="rice-footer">
+                  <div className="rice-price">{rice.price}</div>
+                  <p className="rice-packs">Available in: {rice.packSizes}</p>
+                  <Link to="/products" className="btn btn-primary btn-small">View Details</Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="section-footer">
+            <Link to="/products" className="btn btn-dark">View All Products →</Link>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Why Choose NVS Rice Mart?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl text-orange-600">🌾</span>
+      <section className="features">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">Why Choose Us</span>
+            <h2 className="section-title">The NVS Rice Mart Advantage</h2>
+            <p className="section-description">We're committed to providing the highest quality rice with exceptional service</p>
+          </div>
+          <div className="features-grid">
+            {features.map((feature, index) => (
+              <div key={index} className="feature-card">
+                <div className={`feature-icon feature-${feature.color}`}>
+                  <span>{feature.icon}</span>
+                </div>
+                <h3 className="feature-title">{feature.title}</h3>
+                <p className="feature-description">{feature.description}</p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Quality</h3>
-              <p className="text-gray-600">Handpicked, premium rice varieties sourced directly from the finest farms</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl text-green-600">🚚</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Fast Delivery</h3>
-              <p className="text-gray-600">Free home delivery within 24 hours across the city. Fresh rice guaranteed</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl text-blue-600">💎</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Best Prices</h3>
-              <p className="text-gray-600">Competitive wholesale prices with special discounts for bulk orders</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Customer Reviews Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">What Our Customers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  ★★★★★
-                </div>
-              </div>
-              <p className="text-gray-600 mb-4 italic">
-                "NVS Rice Mart provides the best quality rice in the city. Their Basmati rice is exceptional,
-                and the delivery is always on time. My family loves their products!"
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-orange-600 font-bold">RS</span>
-                </div>
-                <div>
-                  <p className="text-gray-900 font-medium">Rajesh Sharma</p>
-                  <p className="text-gray-500 text-sm">Regular Customer, Delhi</p>
-                </div>
-              </div>
-            </div>
+      {/* Free Delivery Banner */}
+      <section className="delivery-banner">
+        <div className="banner-content">
+          <div className="banner-text">
+            <h3>🚚 Free Home Delivery on All Orders!</h3>
+            <p>Order online and get fresh rice delivered to your doorstep within 24 hours</p>
+          </div>
+          <Link to="/products" className="btn btn-white">Order Now</Link>
+        </div>
+      </section>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  ★★★★★
+      {/* Testimonials Section */}
+      <section className="testimonials">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">Testimonials</span>
+            <h2 className="section-title">What Our Customers Say</h2>
+            <p className="section-description">Don't just take our word for it - hear from our satisfied customers</p>
+          </div>
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="testimonial-card">
+                <div className="testimonial-rating">★★★★★</div>
+                <p className="testimonial-text">"{testimonial.text}"</p>
+                <div className="testimonial-author">
+                  <div className={`author-avatar ${testimonial.bgColor.replace('bg-', 'avatar-')}`}>
+                    <span className={testimonial.textColor}>{testimonial.initials}</span>
+                  </div>
+                  <div className="author-info">
+                    <p className="author-name">{testimonial.name}</p>
+                    <p className="author-location">{testimonial.location}</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-600 mb-4 italic">
-                "As a restaurant owner, I need consistent quality rice. NVS Rice Mart has been our trusted
-                supplier for 3 years. Their service and product quality is outstanding!"
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-green-600 font-bold">PK</span>
-                </div>
-                <div>
-                  <p className="text-gray-900 font-medium">Priya Kapoor</p>
-                  <p className="text-gray-500 text-sm">Restaurant Owner, Mumbai</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  ★★★★★
-                </div>
-              </div>
-              <p className="text-gray-600 mb-4 italic">
-                "Excellent quality rice with very competitive prices. The free delivery service is a bonus,
-                and their customer service is very responsive and helpful."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-purple-600 font-bold">AM</span>
-                </div>
-                <div>
-                  <p className="text-gray-900 font-medium">Amit Mehta</p>
-                  <p className="text-gray-500 text-sm">Regular Customer, Bangalore</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Team Members Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Meet Our Expert Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-28 h-28 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
-                <img
-                  src={founderImage}
-                  alt="Vikram Singh - CEO & Founder"
-                  className="w-full h-full object-cover"
-                />
+      {/* Team Section */}
+      <section className="team">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-badge">Our Team</span>
+            <h2 className="section-title">Meet Our Expert Team</h2>
+            <p className="section-description">Experienced professionals dedicated to bringing you the finest quality rice</p>
+          </div>
+          <div className="team-grid">
+            <div className="team-card">
+              <div className="team-avatar">
+                <img src={founderImage} alt="Vikram Singh - CEO & Founder" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Vikram Singh</h3>
-              <p className="text-orange-600 font-medium mb-2">CEO & Founder</p>
-              <p className="text-gray-600 text-sm">20+ years in rice trading business</p>
+              <h3 className="team-name">Vikram Singh</h3>
+              <p className="team-role">CEO & Founder</p>
+              <p className="team-experience">20+ years in rice trading business</p>
             </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl text-green-600">🌾</span>
+            <div className="team-card">
+              <div className="team-avatar avatar-green">
+                <span>🌾</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Rajesh Kumar</h3>
-              <p className="text-orange-600 font-medium mb-2">Quality Director</p>
-              <p className="text-gray-600 text-sm">Expert in rice quality control</p>
+              <h3 className="team-name">Rajesh Kumar</h3>
+              <p className="team-role">Quality Director</p>
+              <p className="team-experience">Expert in rice quality control</p>
             </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl text-blue-600">🚚</span>
+            <div className="team-card">
+              <div className="team-avatar avatar-blue">
+                <span>🚚</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Priya Sharma</h3>
-              <p className="text-orange-600 font-medium mb-2">Operations Manager</p>
-              <p className="text-gray-600 text-sm">Supply chain and logistics expert</p>
+              <h3 className="team-name">Priya Sharma</h3>
+              <p className="team-role">Operations Manager</p>
+              <p className="team-experience">Supply chain expert</p>
             </div>
-
-            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl text-purple-600">👨‍💼</span>
+            <div className="team-card">
+              <div className="team-avatar avatar-purple">
+                <span>👨‍💼</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Amit Patel</h3>
-              <p className="text-orange-600 font-medium mb-2">Customer Relations</p>
-              <p className="text-gray-600 text-sm">MBA in Customer Management</p>
+              <h3 className="team-name">Amit Patel</h3>
+              <p className="team-role">Customer Relations</p>
+              <p className="team-experience">MBA in Customer Management</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Order Premium Rice?</h2>
-            <p className="text-gray-600 mb-6">Get fresh, high-quality rice delivered to your doorstep with free home delivery.</p>
-            <Link to="/products" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-              Order Now
-            </Link>
+      <section className="cta">
+        <div className="cta-content">
+          <div className="cta-card">
+            <h2>Ready to Order Premium Rice?</h2>
+            <p>Get fresh, high-quality rice delivered to your doorstep with free home delivery</p>
+            <div className="cta-buttons">
+              <Link to="/products" className="btn btn-white">Order Now</Link>
+              <Link to="/settings" className="btn btn-outline-white">Contact Us</Link>
+            </div>
           </div>
         </div>
       </section>
