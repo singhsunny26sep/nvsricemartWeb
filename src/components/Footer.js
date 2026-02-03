@@ -19,16 +19,16 @@ function Footer() {
               from the finest farms across India.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
                 <span className="text-xl">📘</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
                 <span className="text-xl">🐦</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
                 <span className="text-xl">📷</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
                 <span className="text-xl">💼</span>
               </a>
             </div>
@@ -71,24 +71,24 @@ function Footer() {
             <h4 className="text-lg font-semibold mb-4">Our Products</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+                <Link to="/products" className="text-gray-400 hover:text-orange-400 transition-colors">
                   Basmati Rice
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+                <Link to="/products" className="text-gray-400 hover:text-orange-400 transition-colors">
                   Sonamasuri Rice
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+                <Link to="/products" className="text-gray-400 hover:text-orange-400 transition-colors">
                   Brown Rice
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors">
+                <Link to="/products" className="text-gray-400 hover:text-orange-400 transition-colors">
                   Bulk Orders
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -142,15 +142,15 @@ function Footer() {
             © 2024 NVS Rice Mart. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+            <Link to="/" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+            </Link>
+            <Link to="/" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
               Terms of Service
-            </a>
-            <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+            </Link>
+            <Link to="/" className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
               Quality Guarantee
-            </a>
+            </Link>
           </div>
         </div>
       </div>

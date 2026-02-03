@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
-import { CartContext } from '../App';
 import './Services.css';
 
 function Services() {
-  const { cartItems } = useContext(CartContext);
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const { cartItems } = React.useContext(require('../App').CartContext);
 
   const services = [
     {
@@ -111,7 +109,7 @@ function Services() {
   return (
     <div className="services-container">
       {/* Navigation */}
- 
+  
 
       {/* Header */}
       <section className="services-header">

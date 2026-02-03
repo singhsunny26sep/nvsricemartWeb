@@ -7,7 +7,6 @@ import './Home.css';
 
 function Home() {
   const { cartItems } = useContext(CartContext);
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const riceVarieties = [
     {
