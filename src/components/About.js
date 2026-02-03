@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import founderImage from '../img/founder.jpeg';
 import './About.css';
+import Footer from './Footer';
 
 function About() {
   const milestones = [
@@ -183,6 +184,7 @@ function About() {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 }

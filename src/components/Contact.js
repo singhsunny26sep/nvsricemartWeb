@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Contact.css';
+import Footer from './Footer';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -253,6 +254,7 @@ function Contact() {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 }
