@@ -60,25 +60,6 @@ function Products() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
       {/* Navigation */}
-      <nav className="bg-white shadow-lg border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-2xl">🌾</span>
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900">NVS Rice Mart</h1>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Home</Link>
-              <Link to="/products" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Rice Varieties</Link>
-              <Link to="/services" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Our Services</Link>
-              <Link to="/cart" className="text-gray-700 hover:text-orange-600 transition-colors font-medium">Cart</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Header */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
