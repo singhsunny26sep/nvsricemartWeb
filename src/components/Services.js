@@ -4,7 +4,6 @@ import Footer from './Footer';
 import './Services.css';
 
 function Services() {
-  const { cartItems } = React.useContext(require('../App').CartContext);
 
   const services = [
     {

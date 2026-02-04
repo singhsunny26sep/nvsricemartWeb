@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
-import { CartContext } from '../App';
 import founderImage from '../img/founder.jpeg';
 import './Home.css';
 
 function Home() {
-  const { cartItems } = useContext(CartContext);
 
   const riceVarieties = [
     {
