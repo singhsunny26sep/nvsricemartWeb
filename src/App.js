@@ -9,6 +9,7 @@ import Services from './components/Services';
 import Cart from './components/Cart';
 import Analytics from './components/Analytics';
 import Settings from './components/Settings';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 export const CartContext = React.createContext();
 
@@ -68,6 +69,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/analytics" element={<Analytics />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Routes>
           </main>
         
