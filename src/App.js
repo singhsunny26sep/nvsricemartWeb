@@ -10,6 +10,7 @@ import Cart from './components/Cart';
 import Analytics from './components/Analytics';
 import Settings from './components/Settings';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Login from './components/Login';
 
 export const CartContext = React.createContext();
 
@@ -56,21 +57,22 @@ function App() {
   return (
     <CartContext.Provider value={cartValue}>
       <Router>
-        <div className="app-wrapper">
-          <Navbar />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Home" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/analytics" element={<Analytics />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            </Routes>
+         <div className="app-wrapper">
+           <Navbar />
+           <main className="main-content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Home" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              </Routes>
           </main>
         
         </div>
