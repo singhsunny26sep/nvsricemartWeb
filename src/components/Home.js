@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import founderImage from '../img/founder.jpeg';
@@ -31,8 +31,7 @@ function Home() {
     { name: 'Amit Mehta', location: 'Bangalore', initials: 'AM', bgColor: 'bg-purple-100', textColor: 'text-purple-600', rating: 5, text: "Excellent quality rice with very competitive prices. The free delivery service is a bonus, and their customer service is very responsive and helpful." }
   ];
 
-  // Static rice data as backup
-  const staticRiceData = [
+  const staticRiceData = useMemo(() => [
     {
       id: 1,
       name: 'Basmati Rice',
@@ -99,11 +98,11 @@ function Home() {
       price: '₹85/kg',
       packSizes: '1kg, 5kg, 25kg'
     }
-  ];
+  ], []);
 
-   useEffect(() => {
-     const fetchRiceVarieties = async () => {
-       try {
+  useEffect(() => {
+      const fetchRiceVarieties = async () => {
+        try {
          const token = localStorage.getItem('token');
          
          // Add timeout to fetch request to prevent hanging
@@ -175,7 +174,7 @@ function Home() {
     };
 
     fetchRiceVarieties();
-  }, []);
+  }, [staticRiceData]);
 
   // Helper function to get emoji based on rice name
   const getEmojiForRice = (name) => {
