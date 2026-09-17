@@ -71,7 +71,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/analytics" element={<Analytics />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               </Routes>
           </main>
         
